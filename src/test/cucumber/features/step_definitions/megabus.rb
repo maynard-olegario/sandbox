@@ -1,4 +1,4 @@
-And /^I print all megabus dollar deals under \$\d+$/ do |maxPrice|
+And /^I print all megabus dollar deals under \$(\d+)$/ do |maxPrice|
 
     @resultHash = Hash.new
     require 'date'
@@ -22,9 +22,10 @@ And /^I print all megabus dollar deals under \$\d+$/ do |maxPrice|
             prices.sort.each { |price|
                 price = price.match(/\d*\.\d\d/).to_s
                 price = price.to_i
-                if price <= maxPrice
+                if price <= maxPrice.to_i
                     puts currentDate.to_s + '   $' + price.to_s
                     puts url.to_s
+                    puts '========================================================'
                     @resultHash["#{price}"] = url
                     break
                 end
