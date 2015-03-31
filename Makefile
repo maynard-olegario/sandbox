@@ -15,7 +15,7 @@ install-test:
 
 install-localgems:
 	@gem install bundler
-	@brew install phantomjs
+	@npm install phantomjs
 	@bundle install --path=vendor/bundle
 
 test-daily: clear-results install-localgems
