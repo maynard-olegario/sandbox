@@ -14,6 +14,7 @@ install-test:
 	@bundle install
 
 install-localgems:
+	@gem install bundler
 	@bundle install --path=vendor/bundle
 
 test-daily: clear-results install-localgems
